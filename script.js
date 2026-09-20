@@ -1,11 +1,10 @@
 const root = document.documentElement;
 const savedTheme = localStorage.getItem('theme');
-const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-if (savedTheme) {
-  root.dataset.theme = savedTheme;
-} else if (prefersLight) {
+if (savedTheme === 'light') {
   root.dataset.theme = 'light';
+} else {
+  root.dataset.theme = 'dark';
 }
 
 document.getElementById('themeToggle').addEventListener('click', () => {
