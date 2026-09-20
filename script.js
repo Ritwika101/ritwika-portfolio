@@ -53,8 +53,7 @@ const recognitionGalleryData = {
     title: 'Precision Healthcare Challenge',
     subtitle: 'GE Healthcare',
     images: [
-      { src: './assets/recognition/precision-1.jpg', alt: 'Precision Healthcare Challenge recognition', caption: 'Challenge recognition' },
-      { src: './assets/recognition/precision-2.jpg', alt: 'Precision Healthcare Challenge event image', caption: 'Challenge / event' }
+      { src: './assets/recognition/precision-1.jpg', alt: 'Precision Healthcare Challenge recognition', caption: 'Challenge recognition' }
     ]
   },
   'datadive': {

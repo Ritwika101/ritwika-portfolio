@@ -803,33 +803,48 @@ body.recognition-modal-open { overflow: hidden; }
     opacity: .82;
   }
 
-  .recognition-modal { padding: 12px; }
-  .recognition-modal-panel { max-height: 92vh; border-radius: 20px; }
-  .recognition-modal-header { padding: 18px 18px 14px; }
+  .recognition-modal {
+    padding: 12px;
+  }
+
+  .recognition-modal-panel {
+    max-height: 92vh;
+    border-radius: 20px;
+  }
+
+  .recognition-modal-header {
+    padding: 18px 18px 14px;
+  }
 
   .recognition-gallery {
     grid-template-columns: 1fr;
     padding: 16px 18px 20px;
-    gap: 12px;
+    gap: 16px;
   }
 
-  /* Mobile: let each image use its natural aspect ratio.
-     This avoids large empty areas / cropped-looking certificate previews. */
+  /* Mobile: use natural image proportions and prevent very tall images
+     from taking over the entire screen. */
   .recognition-gallery-item {
     display: block;
     height: auto;
   }
 
   .recognition-gallery-item img {
+    display: block;
     width: 100%;
     height: auto;
-    max-height: none;
+    max-height: 72vh;
     object-fit: contain;
-    display: block;
+    object-position: center;
   }
 
   .recognition-gallery-item figcaption {
-    margin-top: 0;
+    display: block;
+    margin: 0;
+    padding: 10px 13px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: .76rem;
   }
 }
 
