@@ -773,6 +773,9 @@ body.recognition-modal-open { overflow: hidden; }
   background: var(--surface);
   overflow: hidden;
   box-shadow: 0 14px 34px rgba(0,0,0,.14);
+
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 .recognition-gallery-item img {
@@ -781,6 +784,8 @@ body.recognition-modal-open { overflow: hidden; }
   max-height: 560px;
   display: block;
   object-fit: contain;
+  align-self: center;
+
   background: color-mix(in srgb, var(--bg) 82%, white 2%);
 }
 
