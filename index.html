@@ -343,40 +343,46 @@
         </div>
 
         <div class="recognition-grid">
-          <article class="recognition-card recognition-card-primary">
+          <article class="recognition-card recognition-card-primary" data-recognition="vc-medal" tabindex="0" role="button" aria-label="View images for Vice Chancellor’s Silver Medal">
             <span class="recognition-type">Academic distinction</span>
             <h3>Vice Chancellor’s Silver Medal</h3>
             <p>KIIT University</p>
+            <span class="recognition-view">View recognition ↗</span>
           </article>
 
-          <article class="recognition-card recognition-card-primary">
+          <article class="recognition-card recognition-card-primary" data-recognition="kiit-merit" tabindex="0" role="button" aria-label="View images for KIIT Merit Scholarship">
             <span class="recognition-type">Academic distinction</span>
             <h3>KIIT Merit Scholarship</h3>
             <p>Semesters 5–8</p>
+            <span class="recognition-view">View recognition ↗</span>
           </article>
 
-          <article class="recognition-card">
+          <article class="recognition-card" data-recognition="precision-healthcare" tabindex="0" role="button" aria-label="View images for Precision Healthcare Challenge">
             <span class="recognition-type">Finalist</span>
             <h3>Precision Healthcare Challenge</h3>
             <p>Organized by GE Healthcare</p>
+            <span class="recognition-view">View recognition ↗</span>
           </article>
 
-          <article class="recognition-card">
+          <article class="recognition-card" data-recognition="datadive" tabindex="0" role="button" aria-label="View images for DataDive">
             <span class="recognition-type">Winner</span>
             <h3>DataDive</h3>
             <p>Organized by Microsoft Learn Student Ambassadors, KIIT</p>
+            <span class="recognition-view">View recognition ↗</span>
           </article>
 
-          <article class="recognition-card recognition-card-compact">
+          <article class="recognition-card recognition-card-compact" data-recognition="devhack" tabindex="0" role="button" aria-label="View images for DevHack Hackathon">
             <span class="recognition-type">Finalist</span>
             <h3>DevHack Hackathon</h3>
             <p>Organized by Google Developer Student Club, KIIT</p>
+            <span class="recognition-view">View recognition ↗</span>
           </article>
 
-          <article class="recognition-card recognition-card-compact">
+          <article class="recognition-card recognition-card-compact" data-recognition="quarantine-hackfest" tabindex="0" role="button" aria-label="View images for Quarantine Hackfest">
             <span class="recognition-type">Finalist</span>
             <h3>Quarantine Hackfest</h3>
             <p>Organized by Microsoft Student Partners, KIIT</p>
+            <span class="recognition-view">View recognition ↗</span>
           </article>
         </div>
       </div>
@@ -396,6 +402,21 @@
       </div>
     </section>
   </main>
+
+<div class="recognition-modal" id="recognitionModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="recognitionModalTitle">
+    <div class="recognition-modal-backdrop" aria-hidden="true"></div>
+    <div class="recognition-modal-panel">
+      <div class="recognition-modal-header">
+        <div>
+          <span class="recognition-modal-kicker" id="recognitionModalKicker"></span>
+          <h2 class="recognition-modal-title" id="recognitionModalTitle"></h2>
+          <p class="recognition-modal-subtitle" id="recognitionModalSubtitle"></p>
+        </div>
+        <button class="recognition-modal-close" id="recognitionModalClose" type="button" aria-label="Close recognition gallery">×</button>
+      </div>
+      <div class="recognition-gallery" id="recognitionGallery"></div>
+    </div>
+  </div>
 
   <footer class="container footer">
     <span>© <span id="year"></span> Ritwika Pal</span>

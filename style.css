@@ -609,3 +609,204 @@ h1 {
 @media (max-width: 760px) {
   .problem-solving-card { grid-template-columns: 1fr; padding: 24px; }
 }
+
+/* Recognition gallery interaction */
+.recognition-card[data-recognition] {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+}
+
+.recognition-card[data-recognition]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 88% 10%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 42%);
+  transition: opacity .25s ease;
+}
+
+.recognition-card[data-recognition]:hover::after,
+.recognition-card[data-recognition]:focus-visible::after { opacity: 1; }
+
+.recognition-card[data-recognition]:focus-visible {
+  border-color: color-mix(in srgb, var(--accent) 70%, var(--line));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent), 0 16px 40px rgba(0,0,0,.11);
+}
+
+.recognition-view {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  opacity: .72;
+  transform: translateY(2px);
+  transition: color .2s ease, opacity .2s ease, transform .2s ease;
+}
+
+.recognition-card[data-recognition]:hover .recognition-view,
+.recognition-card[data-recognition]:focus-visible .recognition-view {
+  color: var(--text);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.recognition-modal-open { overflow: hidden; }
+
+.recognition-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+
+.recognition-modal.is-open { display: flex; }
+
+.recognition-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 8, 18, .76);
+  backdrop-filter: blur(14px);
+}
+
+.recognition-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, 100%);
+  max-height: min(86vh, 900px);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: color-mix(in srgb, var(--bg-soft) 94%, transparent);
+  box-shadow: 0 30px 100px rgba(0,0,0,.45);
+  overflow: hidden;
+  animation: recognitionModalIn .22s ease both;
+}
+
+@keyframes recognitionModalIn {
+  from { opacity: 0; transform: translateY(12px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.recognition-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 26px 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.recognition-modal-kicker {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.recognition-modal-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  letter-spacing: -.045em;
+  line-height: 1.08;
+}
+
+.recognition-modal-subtitle {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.recognition-modal-close {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.recognition-modal-close:hover {
+  transform: rotate(4deg) scale(1.04);
+  background: var(--surface-strong);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+}
+
+.recognition-gallery {
+  overflow-y: auto;
+  padding: 24px 26px 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.recognition-gallery.single-image { grid-template-columns: minmax(0, 760px); justify-content: center; }
+
+.recognition-gallery-item {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0,0,0,.14);
+}
+
+.recognition-gallery-item img {
+  width: 100%;
+  height: 100%;
+  max-height: 560px;
+  display: block;
+  object-fit: contain;
+  background: color-mix(in srgb, var(--bg) 82%, white 2%);
+}
+
+.recognition-gallery-item figcaption {
+  padding: 10px 13px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .76rem;
+}
+
+@media (max-width: 680px) {
+  .recognition-view {
+    position: static;
+    margin-top: 16px;
+    opacity: .82;
+  }
+  .recognition-modal { padding: 12px; }
+  .recognition-modal-panel { max-height: 92vh; border-radius: 20px; }
+  .recognition-modal-header { padding: 18px 18px 14px; }
+  .recognition-gallery {
+    grid-template-columns: 1fr;
+    padding: 16px 18px 20px;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recognition-modal-panel { animation: none; }
+}
