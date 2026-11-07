@@ -267,6 +267,10 @@ h1 {
 .project-card h3 { font-size: 1.75rem; letter-spacing: -.04em; margin: 0 0 10px; }
 .project-card p { color: var(--muted); margin: 0 0 22px; }
 .project-card a { font-weight: 700; font-size: .9rem; }
+.project-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+.project-links a { display: inline-flex; align-items: center; }
+.project-card .project-availability { margin: -10px 0 18px; font-size: .78rem; letter-spacing: .01em; color: var(--muted); }
+
 
 .research-card { border-radius: 26px; padding: 32px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: end; }
 .research-card h3 { font-size: clamp(1.7rem, 3vw, 2.6rem); max-width: 880px; letter-spacing: -.045em; margin: 8px 0 14px; }
